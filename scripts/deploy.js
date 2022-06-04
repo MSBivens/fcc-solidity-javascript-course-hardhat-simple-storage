@@ -14,6 +14,15 @@ async function main() {
     await simpleStorage.deployTransaction.wait(6)
     await verify(simpleStorage.address, [])
   }
+
+  const currentValue = await simpleStorage.retrieve()
+  console.log(`Current Value is: ${currentValue}`)
+
+  // Update the current value
+  const transactionResponse = await simpleStorage.store(5)
+  await transactionResponse.wait(1)
+  const updatedValue = await simpleStorage.retrieve()
+  console.log(`Updated Value is: ${updatedValue}`)
 }
 
 async function verify(contractAddress, args) {
