@@ -1,6 +1,6 @@
 // imports
 const { solidity } = require("ethereum-waffle")
-const { ethers } = require("hardhat")
+const { ethers, run } = require("hardhat")
 
 // async main
 async function main() {
@@ -9,6 +9,22 @@ async function main() {
   const simpleStorage = await SimpleStorageFactory.deploy()
   await simpleStorage.deployed()
   console.log(`Deployed contract to: ${simpleStorage.address}`)
+}
+
+async function verify(contractAddress, args) {
+  console.log("Verifying contract...")
+  try {
+    await run("verify:verify", {
+      address: contractAddress,
+      constructorArguments: args,
+    })
+  } catch (e) {
+    if (e.message.toLowerCase().includes("already verified")) {
+      console.log("Already Verified!")
+    } else {
+      console.log(e)
+    }
+  }
 }
 
 // main
