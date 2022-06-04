@@ -1,5 +1,6 @@
 require("@nomiclabs/hardhat-waffle")
 require("dotenv").config()
+require("@nomiclabs/hardhat-etherscan")
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -12,7 +13,7 @@ module.exports = {
   networks: {
     rinkeby: {
       url: RINKEBY_RPC_URL,
-      account: [PRIVATE_KEY],
+      accounts: [PRIVATE_KEY],
       chainId: 4,
     },
   },
