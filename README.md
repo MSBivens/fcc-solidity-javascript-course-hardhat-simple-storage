@@ -1,9 +1,15 @@
-Created as part of the FreeCodeCamp Solidity & Javascript Blockchain Course.
+# Basic Sample Hardhat Project
 
-This code was written for [Lesson 6: Hardhat Simple Storage](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=30017s)
+This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
-## What I worked with:
+Try running some of the following tasks:
 
-- Hardhat
-
-## The repo showcases:
+```shell
+npx hardhat accounts
+npx hardhat compile
+npx hardhat clean
+npx hardhat test
+npx hardhat node
+node scripts/sample-script.js
+npx hardhat help
+```
